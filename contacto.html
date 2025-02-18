@@ -19,22 +19,44 @@
   </div>
   <div id="contacto" class="container mt-5 py-5">
     <p class="lead text-center">Si tienes alguna duda o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
-    <form>
+    <form id="contactForm">
       <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" required>
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" required>
       </div>
       <div class="mb-3">
-        <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" required>
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" required>
       </div>
       <div class="mb-3">
-        <label for="mensaje" class="form-label">Mensaje</label>
-        <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" rows="3" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-    </form>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
   </div>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let nombre = document.getElementById('nombre').value.trim();
+        let email = document.getElementById('email').value.trim();
+        let mensaje = document.getElementById('mensaje').value.trim();
+        
+        if (nombre === '' || email === '' || mensaje === '') {
+            alert('Todos los campos son obligatorios.');
+            return;
+        }
+        
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Ingrese un correo electrónico válido.');
+            return;
+        }
+        
+        alert(`Gracias, ${nombre}. Hemos recibido tu mensaje y te contactaremos pronto.`);
+        document.getElementById('contactForm').reset();
+    });
+</script>
 </body>
 
 </html>
