@@ -5,20 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - Transporte de Caballos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-GLhlTQ8iRAB+2K6JXyE3JlGUNc1D2c1d+HEzGk5T5mllsU0ntBx5Z5ZKmM0hA46k" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz4fnFO9gybIYzLfJ9k7/8arFJOfDjmsh8fXnp6mM6Q0Ut8g0iLyy6exk1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-pzjw8f+ua7Kw1TIq0dOsZ2Rop6P8p4h5lJ68IHLm2qlk5LhjEoCm0I2vXxLvL7pB"
-        crossorigin="anonymous"></script>
-    <div class="container text-center py-5">
-        <h1 class="display-1">Servicios de Transporte</h1>
-    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
+        .service-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            /* Fijar altura para uniformidad */
+            object-fit: cover;
+            /* Recorta la imagen para ajustarla */
+            border-radius: 8px;
+        }
+
         .h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #2c3e50;
         }
@@ -28,55 +37,43 @@
             color: #7f8c8d;
             line-height: 1.5;
         }
-
-        .service-card {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .service-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
     </style>
 </head>
 
 <body>
     <div class="container text-center py-5">
-        <div class="row">
-            <div class="col-4">
-                <div class="service-card">
+        <h1 class="display-1">Servicios - Transporte de Caballos</h1>
+    </div>
+    <div class="container text-center py-5">
+        <div class="row g-4">
+            <div class="col-md-4 d-flex">
+                <div class="service-card flex-fill">
                     <p class="h2">Transporte Nacional</p>
                     <p class="description">Garantizamos un transporte seguro para tu caballo a nivel nacional, con
                         vehículos adaptados a sus necesidades.</p>
-                    <img src="img/mapa_españa.jpg"
-                        alt="Mapa de España" class="service-image">
+                    <img src="img/mapa_españa.jpg" alt="Mapa de España" class="service-image">
                 </div>
             </div>
-            <div class="col-4">
-                <div class="service-card">
+            <div class="col-md-4 d-flex">
+                <div class="service-card flex-fill">
                     <p class="h2">Transporte Internacional</p>
                     <p class="description">Realizamos transporte internacional, asegurando el cumplimiento de todas
                         las normativas de seguridad y bienestar animal.</p>
-                    <img src="img/mapa_europa.webp"
-                        alt="Mapa de Europa" class="service-image">
+                    <img src="img/mapa_europa.webp" alt="Mapa de Europa" class="service-image">
                 </div>
             </div>
-            <div class="col-4">
-                <div class="service-card">
+            <div class="col-md-4 d-flex">
+                <div class="service-card flex-fill">
                     <p class="h2">Transporte de Emergencia</p>
                     <p class="description">Si tu caballo necesita un traslado urgente, contamos con un servicio de
                         emergencia disponible las 24 horas del día.</p>
-                    <img src="img/emergencia.webp"
-                        alt="Emergencia" class="service-image">
+                    <img src="img/emergencia.webp" alt="Emergencia" class="service-image">
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
