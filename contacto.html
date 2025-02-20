@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Transporte de Caballos</title>
+  <title>Contacto</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -31,15 +31,15 @@
     <form id="contactForm">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" required>
+        <input type="text" class="form-control" id="nombre" placeholder="Antonio Vazquez Torres" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" required>
+        <input type="email" class="form-control" id="email" placeholder="name@gmail.com" required>
       </div>
       <div class="mb-3">
         <label for="mensaje" class="form-label">Mensaje</label>
-        <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+        <textarea class="form-control" id="mensaje" rows="3" placeholder="¿Cómo hago para enviar facilmente la documentación de mi caballo?" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
@@ -73,7 +73,14 @@
       document.getElementById('contactForm').reset();
     });
   </script>
-
 </body>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <p class="mb-0">©2025 AVT Transportes de Caballos | 
+    <a href="condiciones.html" class="text-white text-decoration-none">Condiciones legales</a> | 
+    <a href="aviso_legal.html" class="text-white text-decoration-none">Aviso legal</a> | 
+    <a href="cookies.html" class="text-white text-decoration-none">Política de cookies</a>
+  </p>
+</footer>
 
 </html>

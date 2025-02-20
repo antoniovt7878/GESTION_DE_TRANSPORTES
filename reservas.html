@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservas - Transporte de Caballos</title>
+  <title>Reservas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -13,6 +13,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
     crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places" async defer></script>
+
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="pagina_principal.html">Home</a></li>
@@ -23,6 +25,45 @@
     <h1 class="display-1">Reservas - Transportes de Caballos</h1>
   </div>
   <script>
+    let mapOrigen, mapDestino;
+    let markerOrigen, markerDestino;
+
+    function initMap() {
+      // Mapa de origen
+      mapOrigen = new google.maps.Map(document.getElementById('mapOrigen'), {
+        center: { lat: -34.397, lng: 150.644 }, // Coordenadas predeterminadas
+        zoom: 12
+      });
+
+      markerOrigen = new google.maps.Marker({
+        map: mapOrigen,
+        draggable: true, // Hacer el marcador arrastrable
+        position: { lat: -34.397, lng: 150.644 }
+      });
+
+      google.maps.event.addListener(markerOrigen, 'dragend', function () {
+        const position = markerOrigen.getPosition();
+        document.getElementById('origen').value = position.lat() + ", " + position.lng();
+      });
+
+      // Mapa de destino
+      mapDestino = new google.maps.Map(document.getElementById('mapDestino'), {
+        center: { lat: -34.397, lng: 150.644 }, // Coordenadas predeterminadas
+        zoom: 12
+      });
+
+      markerDestino = new google.maps.Marker({
+        map: mapDestino,
+        draggable: true, // Hacer el marcador arrastrable
+        position: { lat: -34.397, lng: 150.644 }
+      });
+
+      google.maps.event.addListener(markerDestino, 'dragend', function () {
+        const position = markerDestino.getPosition();
+        document.getElementById('destino').value = position.lat() + ", " + position.lng();
+      });
+    }
+
     function validarFormulario(event) {
       const fecha = document.getElementById('fecha').value;
       const origen = document.getElementById('origen').value;
@@ -69,15 +110,25 @@
       </div>
       <div class="mb-3">
         <label for="origen" class="form-label">Lugar de recogida</label>
-        <input type="text" class="form-control" id="origen" required>
+        <div id="mapOrigen" style="height: 400px;"></div>
+        <input type="text" class="form-control" id="origen" placeholder="Ubicación de origen" readonly required>
       </div>
       <div class="mb-3">
         <label for="destino" class="form-label">Lugar de destino</label>
-        <input type="text" class="form-control" id="destino" required>
+        <div id="mapDestino" style="height: 400px;"></div>
+        <input type="text" class="form-control" id="destino" placeholder="Ubicación de destino" readonly required>
       </div>
       <button type="submit" class="btn btn-primary">Realizar Reserva</button>
     </form>
   </div>
 </body>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <p class="mb-0">©2025 AVT Transportes de Caballos | 
+    <a href="condiciones.html" class="text-white text-decoration-none">Condiciones legales</a> | 
+    <a href="aviso_legal.html" class="text-white text-decoration-none">Aviso legal</a> | 
+    <a href="cookies.html" class="text-white text-decoration-none">Política de cookies</a>
+  </p>
+</footer>
 
 </html>
