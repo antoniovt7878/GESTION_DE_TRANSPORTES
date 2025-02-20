@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +13,38 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
     crossorigin="anonymous"></script>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="pagina_principal.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Reservas</li>
+    </ol>
+  </nav>
+  <div class="container text-center py-5">
+    <h1 class="display-1">Reservas - Transportes de Caballos</h1>
+  </div>
   <script>
     function validarFormulario(event) {
       const fecha = document.getElementById('fecha').value;
       const origen = document.getElementById('origen').value;
       const destino = document.getElementById('destino').value;
       const cantidad = document.getElementById('cantidadSeleccionada').innerText;
-      
+
       if (!fecha || !origen || !destino || !cantidad) {
         event.preventDefault();
         alert('Por favor, complete todos los campos antes de enviar el formulario.');
       }
     }
-    
+
     function seleccionarCantidad(cantidad) {
       document.getElementById('cantidadSeleccionada').innerText = cantidad;
     }
   </script>
 </head>
+
 <body>
-  <div class="container py-5">
-    <h1 class="display-4 text-center">Reserva tu transporte</h1>
-  </div>
-  <div id="reservas" class="container mt-5 py-5">
-    <p class="lead text-center">Completa el formulario para reservar el transporte de tu caballo de manera segura y eficiente.</p>
+  <div class="container mt-5 py-5">
+    <p class="lead text-center">Completa el formulario para reservar el transporte de tu caballo de manera segura y
+      eficiente.</p>
     <form onsubmit="validarFormulario(event)">
       <div class="mb-3">
         <label for="fecha" class="form-label">Fecha de recogida</label>
@@ -44,7 +53,8 @@
       <div class="mb-3">
         <label class="form-label">Cantidad de caballos</label>
         <div class="dropdown d-inline-block">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Seleccione aquí
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -69,4 +79,5 @@
     </form>
   </div>
 </body>
+
 </html>
