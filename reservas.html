@@ -12,32 +12,50 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
     integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
     crossorigin="anonymous"></script>
+  <script>
+    function validarFormulario(event) {
+      const fecha = document.getElementById('fecha').value;
+      const origen = document.getElementById('origen').value;
+      const destino = document.getElementById('destino').value;
+      const cantidad = document.getElementById('cantidadSeleccionada').innerText;
+      
+      if (!fecha || !origen || !destino || !cantidad) {
+        event.preventDefault();
+        alert('Por favor, complete todos los campos antes de enviar el formulario.');
+      }
+    }
+    
+    function seleccionarCantidad(cantidad) {
+      document.getElementById('cantidadSeleccionada').innerText = cantidad;
+    }
+  </script>
 </head>
 <body>
   <div class="container py-5">
     <h1 class="display-4 text-center">Reserva tu transporte</h1>
   </div>
   <div id="reservas" class="container mt-5 py-5">
-    <p class="lead text-center">Completa el formulario para reservar el transporte de tu caballo de manera segura y
-      eficiente.</p>
-    <form>
+    <p class="lead text-center">Completa el formulario para reservar el transporte de tu caballo de manera segura y eficiente.</p>
+    <form onsubmit="validarFormulario(event)">
       <div class="mb-3">
         <label for="fecha" class="form-label">Fecha de recogida</label>
         <input type="date" class="form-control" id="fecha" required>
       </div>
       <div class="mb-3">
-        <label for="cantidad" class="form-label">Cantidad de Caballos</label>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="cantidadBtn">
-            Seleccione cantidad
+        <label class="form-label">Cantidad de caballos</label>
+        <div class="dropdown d-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Seleccione aquí
           </button>
-          <ul class="dropdown-menu" aria-labelledby="cantidadBtn">
-            <li><a class="dropdown-item" href="#" data-value="1">1</a></li>
-            <li><a class="dropdown-item" href="#" data-value="2">2</a></li>
-            <li><a class="dropdown-item" href="#" data-value="3">3</a></li>
-            <li><a class="dropdown-item" href="#" data-value="4">4</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('1')">1</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('2')">2</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('3')">3</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('4')">4</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('Más de 4')">Más de 4</a>
+          </div>
         </div>
+        <span id="cantidadSeleccionada" class="ml-2 font-weight-bold"></span>
       </div>
       <div class="mb-3">
         <label for="origen" class="form-label">Lugar de recogida</label>

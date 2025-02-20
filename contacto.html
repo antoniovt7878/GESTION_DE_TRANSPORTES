@@ -1,62 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Transporte de Caballos</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" 
+  <title>Reservas - Transporte de Caballos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" 
-    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+  <script>
+    function validarFormulario(event) {
+      event.preventDefault();
+      const fecha = document.getElementById('fecha').value;
+      const origen = document.getElementById('origen').value;
+      const destino = document.getElementById('destino').value;
+      const cantidad = document.getElementById('cantidadSeleccionada').innerText;
+      
+      if (!fecha || !origen || !destino || !cantidad) {
+        alert('Por favor, complete todos los campos antes de enviar el formulario.');
+        return;
+      }
+      
+      alert(`Reserva realizada con éxito:\n\nFecha: ${fecha}\nCantidad de caballos: ${cantidad}\nOrigen: ${origen}\nDestino: ${destino}`);
+      document.querySelector('form').reset();
+      document.getElementById('cantidadSeleccionada').innerText = '';
+    }
+    
+    function seleccionarCantidad(cantidad) {
+      document.getElementById('cantidadSeleccionada').innerText = cantidad;
+    }
+  </script>
 </head>
-
 <body>
   <div class="container py-5">
-    <h1 class="display-4 text-center">Contáctanos</h1>
+    <h1 class="display-4 text-center">Reserva tu transporte</h1>
   </div>
-  <div id="contacto" class="container mt-5 py-5">
-    <p class="lead text-center">Si tienes alguna duda o necesitas más información, no dudes en ponerte en contacto con nosotros.</p>
-    <form id="contactForm">
+  <div id="reservas" class="container mt-5 py-5">
+    <p class="lead text-center">Completa el formulario para reservar el transporte de tu caballo de manera segura y eficiente.</p>
+    <form onsubmit="validarFormulario(event)">
       <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" required>
+        <label for="fecha" class="form-label">Fecha de recogida</label>
+        <input type="date" class="form-control" id="fecha" required>
       </div>
       <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" required>
+        <label class="form-label">Cantidad de caballos</label>
+        <div class="dropdown d-inline-block">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Seleccione aquí
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('1')">1</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('2')">2</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('3')">3</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('4')">4</a>
+            <a class="dropdown-item" href="#" onclick="seleccionarCantidad('Más de 4')">Más de 4</a>
+          </div>
+        </div>
+        <span id="cantidadSeleccionada" class="ml-2 font-weight-bold"></span>
       </div>
       <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+        <label for="origen" class="form-label">Lugar de recogida</label>
+        <input type="text" class="form-control" id="origen" required>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
+      <div class="mb-3">
+        <label for="destino" class="form-label">Lugar de destino</label>
+        <input type="text" class="form-control" id="destino" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Realizar Reserva</button>
+    </form>
   </div>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        let nombre = document.getElementById('nombre').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let mensaje = document.getElementById('mensaje').value.trim();
-        
-        if (nombre === '' || email === '' || mensaje === '') {
-            alert('Todos los campos son obligatorios.');
-            return;
-        }
-        
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Ingrese un correo electrónico válido.');
-            return;
-        }
-        
-        alert(`Gracias, ${nombre}. Hemos recibido tu mensaje y te contactaremos pronto.`);
-        document.getElementById('contactForm').reset();
-    });
-</script>
 </body>
-
 </html>
