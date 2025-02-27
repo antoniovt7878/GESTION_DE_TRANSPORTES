@@ -25,45 +25,6 @@
     <h1 class="display-1">Reservas - Transportes de Caballos</h1>
   </div>
   <script>
-    let mapOrigen, mapDestino;
-    let markerOrigen, markerDestino;
-
-    function initMap() {
-      // Mapa de origen
-      mapOrigen = new google.maps.Map(document.getElementById('mapOrigen'), {
-        center: { lat: -34.397, lng: 150.644 }, // Coordenadas predeterminadas
-        zoom: 12
-      });
-
-      markerOrigen = new google.maps.Marker({
-        map: mapOrigen,
-        draggable: true, // Hacer el marcador arrastrable
-        position: { lat: -34.397, lng: 150.644 }
-      });
-
-      google.maps.event.addListener(markerOrigen, 'dragend', function () {
-        const position = markerOrigen.getPosition();
-        document.getElementById('origen').value = position.lat() + ", " + position.lng();
-      });
-
-      // Mapa de destino
-      mapDestino = new google.maps.Map(document.getElementById('mapDestino'), {
-        center: { lat: -34.397, lng: 150.644 }, // Coordenadas predeterminadas
-        zoom: 12
-      });
-
-      markerDestino = new google.maps.Marker({
-        map: mapDestino,
-        draggable: true, // Hacer el marcador arrastrable
-        position: { lat: -34.397, lng: 150.644 }
-      });
-
-      google.maps.event.addListener(markerDestino, 'dragend', function () {
-        const position = markerDestino.getPosition();
-        document.getElementById('destino').value = position.lat() + ", " + position.lng();
-      });
-    }
-
     function validarFormulario(event) {
       const fecha = document.getElementById('fecha').value;
       const origen = document.getElementById('origen').value;
@@ -109,14 +70,20 @@
         <span id="cantidadSeleccionada" class="ml-2 font-weight-bold"></span>
       </div>
       <div class="mb-3">
-        <label for="origen" class="form-label">Lugar de recogida</label>
-        <div id="mapOrigen" style="height: 400px;"></div>
-        <input type="text" class="form-control" id="origen" placeholder="Ubicación de origen" readonly required>
+        <div class="card-body">
+          <h5 class="card-title">Lugar de recogida</h5>
+        </div>
+        <div class="ratio ratio-1x1">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d356933.8714888409!2d10.413661869378636!3d45.65994086120074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781eca8aec020b9%3A0x91dcf07c1c969bb8!2sGarda!5e0!3m2!1spl!2spl!4v1672244147501!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
       <div class="mb-3">
-        <label for="destino" class="form-label">Lugar de destino</label>
-        <div id="mapDestino" style="height: 400px;"></div>
-        <input type="text" class="form-control" id="destino" placeholder="Ubicación de destino" readonly required>
+        <div class="card-body">
+          <h5 class="card-title">Lugar de destino</h5>
+        </div>
+        <div class="ratio ratio-1x1">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d356933.8714888409!2d10.413661869378636!3d45.65994086120074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781eca8aec020b9%3A0x91dcf07c1c969bb8!2sGarda!5e0!3m2!1spl!2spl!4v1672244147501!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary">Realizar Reserva</button>
     </form>
