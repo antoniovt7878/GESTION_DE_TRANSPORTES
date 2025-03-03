@@ -1,26 +1,3 @@
-.h1 {
-    font-size: 2rem;
-    color: #2c3e50;
-    font-weight: bold;
-  }
-
-  .descripcion {
-    font-size: 1rem;
-    color: #7f8c8d;
-    line-height: 1.5;
-  }
-
-  .seccion {
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #ecf0f1;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 
   .image-size {
     width: 100%;
@@ -46,13 +23,19 @@
 }
 
 .h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2c3e50;
+  font-size: 2rem;
+  color: #212529;
+  font-weight: bold;
 }
 
 .description {
     font-size: 1rem;
     color: #7f8c8d;
     line-height: 1.5;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 500px; 
+  object-fit: cover; 
+  border-radius: 15px;
 }
