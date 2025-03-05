@@ -39,3 +39,8 @@
   object-fit: cover; 
   border-radius: 15px;
 }
+
+a img{
+  height: 40px;
+  width: auto;
+}
