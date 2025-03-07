@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let email = document.getElementById('email').value.trim();
     let mensaje = document.getElementById('mensaje').value.trim();
 
-    if (nombre === '' || email === '' || mensaje === '') {
-      alert('Todos los campos son obligatorios.');
+    if (!nombre || !email || !mensaje) {
+      event.preventDefault();
+      alert('Por favor, complete todos los campos antes de enviar el formulario.');
       return;
     }
 
@@ -20,15 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('contactForm').reset();
   });
 
-  document.querySelector("form[onsubmit='validarFormulario(event)']")?.addEventListener("submit", function (event) {
-    const fecha = document.getElementById('fecha').value;
-    const origen = document.getElementById('origen').value;
-    const destino = document.getElementById('destino').value;
-    const cantidad = document.getElementById('cantidadSeleccionada').innerText;
+  document.getElementById('reservaForm')?.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let fecha = document.getElementById('fecha').value;
+    let origen = document.getElementById('origen').value;
+    let destino = document.getElementById('destino').value;
+    let cantidad = document.getElementById('cantidadSeleccionada').innerText;
 
     if (!fecha || !origen || !destino || !cantidad) {
       event.preventDefault();
       alert('Por favor, complete todos los campos antes de enviar el formulario.');
+      return;
     }
 
     document.getElementById('alerta-exito').classList.remove('d-none');

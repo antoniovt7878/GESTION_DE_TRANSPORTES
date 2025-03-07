@@ -45,10 +45,13 @@ a img{
   width: auto;
 }
 
-.img-transport {
-  width: 250px;  
-  height: auto;   
-  display: block; 
-  margin: 0 auto; 
+.img-preguntas{
+  background: url('img/preguntas.jpg') center/cover no-repeat;
+      color: black;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: 20vh;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      opacity: 0.4;
 }
-
