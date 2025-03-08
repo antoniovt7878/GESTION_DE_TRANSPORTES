@@ -1,4 +1,9 @@
-
+:root{
+  --color-preguntas: #4d8c9f;
+}
+h1{
+  font-weight: bold;
+}
   .image-size {
     width: 100%;
     height: 250px;
@@ -46,7 +51,7 @@ a img{
 }
 
 .img-preguntas{
-  background: url('img/preguntas.jpg') center/cover no-repeat;
+  background: url('../img/preguntas.jpg') center/cover no-repeat;
       color: black;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 20vh;
@@ -54,4 +59,8 @@ a img{
       align-items: center;
       justify-content: center; 
       opacity: 0.4;
+}
+
+.bg-light-blue {
+  background-color: var(--color-preguntas); 
 }
