@@ -58,7 +58,6 @@ a img{
       display: flex;
       align-items: center;
       justify-content: center; 
-      opacity: 0.4;
 }
 
 .bg-light-blue {
@@ -68,3 +67,16 @@ a img{
 .breadcrumb {
   padding: 10px 20px !important; 
 }
+
+.accordion {
+  padding: 10px 20px !important;  
+}
+
+.nosotros{
+  padding: 10px 20px !important; 
+}
+
+.accordion-button {
+  font-weight: bold; 
+}
+
