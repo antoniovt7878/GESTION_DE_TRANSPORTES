@@ -64,3 +64,7 @@ a img{
 .bg-light-blue {
   background-color: var(--color-preguntas); 
 }
+
+.breadcrumb {
+  padding: 10px 20px !important; 
+}
